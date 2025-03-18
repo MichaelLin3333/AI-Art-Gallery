@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Art Gallery</title>
+    <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        .intro {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 20px;
+            line-height: 1.6;
+        }
+        .scroll-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 20px;
+            padding: 20px;
+            white-space: nowrap;
+        }
+        .scroll-item {
+            flex: 0 0 auto;
+            scroll-snap-align: start;
+            width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .scroll-item:hover {
+            transform: scale(1.05);
+        }
+        .scroll-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .member-link {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+            text-align: center;
+        }
+        /* Member Page Styles */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .gallery-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .scroll-container {
+                flex-direction: column;
+                overflow-y: auto;
+            }
+            .scroll-item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Intro Page -->
+    <header>
+        <h1>AI Art Collective Gallery</h1>
+        <p>Exploring the intersection of artificial intelligence and human creativity</p>
+    </header>
+
+        <p>Welcome to our AI art gallery showcasing works created by club members using various AI tools and techniques. Scroll through our featured artists below:</p>
+    </div>
+
+    <div class="scroll-container">
+        <div class="scroll-item">
+            <a href="member1.html" class="member-link">
+                <img src="images/member1.jpg" alt="Artist 1">
+                <span>Artist Name 1</span>
+            </a>
+        </div>
+        <div class="scroll-item">
+            <a href="member2.html" class="member-link">
+                <img src="images/member2.jpg" alt="Artist 2">
+                <span>Artist Name 2</span>
+            </a>
+        </div>
+        <div class="scroll-item">
+            <a href="member3.html" class="member-link">
+                <img src="images/member3.jpg" alt="Artist 3">
+                <span>Artist Name 3</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Member Page Template (member1.html) -->
+    <script type="text/template" id="member-page-template">
+        <header>
+            <h1>Artist Name 1</h1>
+            <a href="index.html" class="back-link">← Back to Gallery</a>
+        </header>
+        
+        <div class="gallery-grid">
+            <a href="images/member1/art1.jpg" data-lightbox="gallery" class="gallery-item">
+                <img src="images/member1/art1_thumb.jpg" alt="Artwork 1">
+            </a>
+            <a href="images/member1/art2.jpg" data-lightbox="gallery" class="gallery-item">
+                <img src="images/member1/art2_thumb.jpg" alt="Artwork 2">
+            </a>
+            <!-- Add more artworks here -->
+        </div>
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
+</body>
+</html>
