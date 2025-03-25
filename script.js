@@ -1,4 +1,4 @@
-var swiper = new swiper(`[unique-script-id="w-w-dm-id"] .mySwiper`, {
+var swiper = new Swiper(`[unique-script-id="w-w-dm-id"] .mySwiper`, {
   slidesPerView: 1.5,
   centeredSlides: true,
   spaceBetween: 5,
