@@ -6,7 +6,6 @@
     <title>Artist Name 1 - AI Art Gallery</title>
     <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet">
     <style>
-        /* Include same CSS styles as index.html */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -32,24 +31,29 @@
         }
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             padding: 20px;
         }
         .gallery-item {
+            position: relative;
             background: white;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        .gallery-item:hover {
-            transform: translateY(-5px);
+            aspect-ratio: 1/1; /* Base aspect ratio */
         }
         .gallery-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: auto;
-            display: block;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
         }
         @media (max-width: 768px) {
             .gallery-grid {
@@ -65,17 +69,81 @@
     </header>
     
     <div class="gallery-grid">
-        <a href="images/member1/art1.png" data-lightbox="gallery" class="gallery-item">
-            <img src="images/member1/art1_thumb.png" alt="Digital Dreamscape">
-        </a>
-        <a href="images/member1/art2.png" data-lightbox="gallery" class="gallery-item">
-            <img src="images/member1/art2_thumb.png" alt="Neural Nebula">
-        </a>
-        <a href="images/member1/art3.png" data-lightbox="gallery" class="gallery-item">
-            <img src="images/member1/art3_thumb.png" alt="Algorithmic Bloom">
-        </a>
+        <!-- Artwork items with automatic thumbnail generation -->
+        <div class="gallery-item" data-src="images/member1/art1.jpeg">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                 data-src-full="images/member1/art1.jpeg"
+                 alt="Digital Dreamscape">
+        </div>
+        <div class="gallery-item" data-src="images/member1/art2.jpeg">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                 data-src-full="images/member1/art2.jpeg"
+                 alt="Neural Nebula">
+        </div>
+        <div class="gallery-item" data-src="images/member1/art3.jpeg">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                 data-src-full="images/member1/art3.jpeg"
+                 alt="Neural Nebula">
+        </div>
+        <!-- Add more artwork items here -->
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
+    <script>
+        // Automatic thumbnail generation and aspect ratio handling
+        document.addEventListener('DOMContentLoaded', () => {
+            const items = document.querySelectorAll('.gallery-item');
+            
+            items.forEach(item => {
+                const img = item.querySelector('img');
+                const fullSrc = img.getAttribute('data-src-full');
+                
+                // Create thumbnail
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                
+                const tempImg = new Image();
+                tempImg.crossOrigin = "anonymous"; // Fix for CORS issue
+                tempImg.src = fullSrc;
+                
+                tempImg.onload = () => {
+                    // Calculate aspect ratio
+                    const ratio = tempImg.width / tempImg.height;
+                    
+                    // Set canvas dimensions (max 600px width)
+                    canvas.width = Math.min(tempImg.width, 600);
+                    canvas.height = canvas.width / ratio;
+                    
+                    // Draw scaled image
+                    ctx.drawImage(tempImg, 0, 0, canvas.width, canvas.height);
+                    
+                    // Convert to data URL and update thumbnail
+                    try {
+                        img.src = canvas.toDataURL('image/jpeg', 0.8); // Generate thumbnail
+                        item.style.aspectRatio = `${ratio}`;
+                    } catch (error) {
+                        console.error("Failed to generate thumbnail:", error);
+                    }
+                    
+                    // Update lightbox reference
+                    const link = document.createElement('a');
+                    link.href = fullSrc;
+                    link.setAttribute('data-lightbox', 'gallery');
+                    link.appendChild(img);
+                    item.appendChild(link);
+                };
+                
+                tempImg.onerror = () => {
+                    console.error(`Failed to load image: ${fullSrc}`);
+                };
+            });
+            
+            // Initialize Lightbox
+            lightbox.option({
+                'resizeDuration': 200,
+                'wrapAround': true
+            });
+        });
+    </script>
 </body>
 </html>
