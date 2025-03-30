@@ -137,10 +137,8 @@
   margin-right: 0px;
   margin-bottom: 0px;
   margin-left: 0px;
-  max-width: 100%;
-  max-height: 100%;
-  width: auto; /* Allow width to adjust dynamically */
-  height: auto; /* Maintain aspect ratio */
+  width: 100vw; /* Allow width to adjust dynamically */
+  height: 100vh; /* Maintain aspect ratio */
   object-fit: cover; /* Scale the image to fit within the container without cropping [[5]] */
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
@@ -182,7 +180,7 @@
 
 .desktop_3 .swiper-container-horizontal {
   overflow: hidden;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   position: relative;
   padding: 0 20px; /* Optional: Adjust spacing for slides */
