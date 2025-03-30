@@ -1,5 +1,5 @@
 var swiper = new Swiper(`[unique-script-id="w-w-dm-id"] .mySwiper`, {
-  speed: 1500,
+  speed: 1000,
   slidesPerView: 1.5,
   centeredSlides: true,
   spaceBetween: 5,
