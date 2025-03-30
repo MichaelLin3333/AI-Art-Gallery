@@ -82,7 +82,7 @@
   padding-right: 0px;
   padding-bottom: 50px;
   padding-left: 0px;
-  max-width: 100%;
+  max-width: auto;
 }
 
 .desktop_3 .swiper-button-nexts {
@@ -180,7 +180,7 @@
 
 .desktop_3 .swiper-container-horizontal {
   overflow: hidden;
-  width: 100wh;
+  width: 100vw;
   height: 100vh;
   position: relative;
   padding: 0 20px; /* Optional: Adjust spacing for slides */
