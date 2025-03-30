@@ -182,7 +182,7 @@
 
 .desktop_3 .swiper-container-horizontal {
   overflow: hidden;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   position: relative;
   padding: 0 20px; /* Optional: Adjust spacing for slides */
