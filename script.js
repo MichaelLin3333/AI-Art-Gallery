@@ -3,6 +3,8 @@ var swiper = new Swiper(`[unique-script-id="w-w-dm-id"] .mySwiper`, {
   slidesPerView: 1.5,
   centeredSlides: true,
   spaceBetween: 5,
+  loop: true,
+  calculateHeight: true,
   pagination: {
     el: `[unique-script-id="w-w-dm-id"] .swiper-pagination`,
     clickable: true,
