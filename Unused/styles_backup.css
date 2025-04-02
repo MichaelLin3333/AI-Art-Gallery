@@ -1,6 +1,6 @@
 .desktop_3 .responsive-container-block {
   min-height: 75px;
-  height: auto;
+  height: fit-content;
   width: 100%;
   padding-top: 10px;
   padding-right: 10px;
@@ -82,7 +82,8 @@
   padding-right: 0px;
   padding-bottom: 50px;
   padding-left: 0px;
-  max-width: auto;
+  width: 100vw;
+  height: 100vh;
 }
 
 .desktop_3 .swiper-button-nexts {
@@ -137,9 +138,11 @@
   margin-right: 0px;
   margin-bottom: 0px;
   margin-left: 0px;
-  width: 100vw; /* Allow width to adjust dynamically */
-  height: 100vh; /* Maintain aspect ratio */
-  object-fit: cover; /* Scale the image to fit within the container without cropping [[5]] */
+  max-width: 100%; /* Limit image width to container */
+  max-height: 100%; /* Limit image height to container */
+  width: auto; /* Allow width to adjust dynamically */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Scale the image to fit within the container without cropping [[5]] */
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
@@ -165,22 +168,65 @@
   align-items: center;
   opacity: 0.3;
   height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
 .desktop_3 .swiper-slide img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  position: absolute;
+  z-index: 1;
+}
+
+/* Add an overlay effect using ::after */
+.desktop_3 .swiper-slide img::after {
+  content: ""; /* Empty content for the pseudo-element */
+  position: absolute;
+  bottom: 0; /* Align to the bottom of the image */
+  left: 0; /* Align to the left */
+  width: 100%; /* Full width of the image */
+  height: 30%; /* Height of the overlay (adjust as needed) */
+  background: rgba(0, 0, 0, 0); /* Transparent background initially */
+  transition: background 0.3s ease; /* Smooth transition for the background */
+  pointer-events: none; /* Prevent interaction with the overlay */
+  z-index: 2; /* Ensure it appears above the image */
+}
+
+/* Style for the description */
+.desktop_3 .swiper-slide .image-description {
+  position: absolute; /* Position relative to the slide */
+  bottom: 10%; /* Place it at the top of the overlay */
+  left: 10px; /* Align it to the left */
+  color: black; /* White text color */
+  font-size: 14px; /* Adjust font size */
+  opacity: 0; /* Initially hidden */
+  transform: translateY(-10px); /* Slightly move it up */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth animation */
+  z-index: 3; /* Ensure it appears above the overlay */
+}
+
+/* Hover effect: Show the overlay and description */
+.desktop_3 .swiper-slide:hover img::after {
+  background: rgba(0, 0, 0, 0.7); /* Dark semi-transparent overlay */
+  opacity: 1;
+}
+
+.desktop_3 .swiper-slide:hover .image-description {
+  opacity: 1; /* Make the description visible */
+  transform: translateY(0); /* Move it to its original position */
 }
 
 .desktop_3 .nextArrow {
   width: 10px;
 }
 
-.desktop_3 .swiper-container-horizontal {
+.desktop_3 .swiper-container-horizontal{
   overflow: hidden;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   position: relative;
   padding: 0 20px; /* Optional: Adjust spacing for slides */
@@ -269,15 +315,5 @@
     padding-right: 10px;
     padding-bottom: 10px;
     padding-left: 10px;
-  }
-}
-
-@media (max-width: 500px) {
-  .desktop_3 .swiper-container-horizontal {
-    padding: 0 10px; /* Reduce padding for smaller screens */
-  }
-
-  .desktop_3 .swiper-slide {
-    padding: 5px; /* Add padding inside slides for spacing */
   }
 }
