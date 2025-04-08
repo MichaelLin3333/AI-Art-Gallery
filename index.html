@@ -4,147 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Art Gallery</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-    <style>
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-
-        /* Fullscreen Title Section */
-        .title-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
-            color: white;
-            text-align: center;
-        }
-
-        .title-section h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
-        }
-
-        /* Navigation Links */
-        .theme-navigation {
-            background: #333;
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
-        }
-
-        .theme-navigation ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        .theme-navigation a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-        }
-
-        .theme-navigation a:hover {
-            color: #f39c12;
-        }
-
-        /* Introduction Section */
-        .introduction-section {
-            padding: 4rem 2rem;
-            text-align: center;
-            background: #fff;
-        }
-
-        .introduction-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .introduction-section p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            color: #555;
-        }
-
-        /* Theme Sections */
-        .theme-section {
-            padding: 4rem 2rem;
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            background: #f9f9f9;
-        }
-
-        .theme-section:nth-child(even) {
-            background: #fff;
-        }
-
-        .theme-section img {
-            width: 50%;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .theme-section div {
-            flex: 1;
-        }
-
-        .theme-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .theme-section p {
-            font-size: 1rem;
-            color: #555;
-            margin-bottom: 1rem;
-        }
-
-        .theme-section a {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: #333;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
-
-        .theme-section a:hover {
-            background: #f39c12;
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 2rem 0;
-            background: #333;
-            color: white;
-        }
-
-        .footer p {
-            font-size: 0.9rem;
-        }
-    </style>
 </head>
 <body>
     <!-- Fullscreen Title Section -->
@@ -152,13 +13,12 @@
         <h1>Welcome to the Art Gallery</h1>
     </header>
 
-    <!-- Navigation Links to Themes -->
+    <!-- Navigation Links -->
     <nav class="theme-navigation">
         <ul>
             <li><a href="#introduction">Introduction</a></li>
-            <li><a href="#theme-abstract">Abstract Art</a></li>
-            <li><a href="#theme-modern">Modern Art</a></li>
-            <li><a href="#theme-classic">Classic Art</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#about">About</a></li>
         </ul>
     </nav>
 
@@ -166,33 +26,87 @@
     <section id="introduction" class="introduction-section">
         <h2>About the Art Gallery</h2>
         <p>This art gallery showcases a collection of stunning artworks across various themes. Explore the beauty of creativity and imagination.</p>
+        <img src="assets/images/AI Vision Club Icon - Earth Day Edition.jpg" alt="Earth Day Icon">
     </section>
 
-    <!-- Theme Sections -->
-    <section id="theme-abstract" class="theme-section">
-        <img src="https://via.placeholder.com/600x400" alt="Abstract Art">
-        <div>
-            <h2>Abstract Art</h2>
-            <p>Abstract art uses shapes, colors, and forms to create compositions that are independent of visual references in the world.</p>
-            <a href="themes/abstract.html">Explore Abstract Art</a>
-        </div>
-    </section>
+    <!-- Gallery Section -->
+    <div id="gallery">
+        <!-- Theme Sections -->
+        <section id="theme-pollution" class="theme-section">
+            <img src="https://via.placeholder.com/600x400" alt="Pollution Unveiled">
+            <div>
+                <h2>Pollution Unveiled</h2>
+                <p>Explore the hidden beauty and harsh realities of pollution through artistic expression.</p>
+                <a href="themes/pollution.html">Explore Pollution Unveiled</a>
+            </div>
+        </section>
 
-    <section id="theme-modern" class="theme-section">
-        <img src="https://via.placeholder.com/600x400" alt="Modern Art">
-        <div>
-            <h2>Modern Art</h2>
-            <p>Modern art reflects the innovative spirit of the 20th century, breaking away from traditional forms and techniques.</p>
-            <a href="themes/modern.html">Explore Modern Art</a>
-        </div>
-    </section>
+        <section id="theme-ecosystems" class="theme-section alternate-layout">
+            <div>
+                <h2>Hidden Ecosystems</h2>
+                <p>Discover the intricate and often unseen ecosystems that sustain life on Earth.</p>
+                <a href="themes/hidden-ecosystems.html">Explore Hidden Ecosystems</a>
+            </div>
+            <img src="https://via.placeholder.com/600x400" alt="Hidden Ecosystems">
+        </section>
 
-    <section id="theme-classic" class="theme-section">
-        <img src="https://via.placeholder.com/600x400" alt="Classic Art">
-        <div>
-            <h2>Classic Art</h2>
-            <p>Classic art embodies the timeless beauty and elegance of traditional artistic styles and techniques.</p>
-            <a href="themes/classic.html">Explore Classic Art</a>
+        <section id="theme-wilderness" class="theme-section">
+            <img src="https://via.placeholder.com/600x400" alt="Wilderness Whisper">
+            <div>
+                <h2>Wilderness Whisper</h2>
+                <p>Immerse yourself in the serene and untamed beauty of the wilderness.</p>
+                <a href="themes/wilderness.html">Explore Wilderness Whisper</a>
+            </div>
+        </section>
+
+        <section id="theme-power" class="theme-section alternate-layout">
+            <div>
+                <h2>Our Power, Our Planet</h2>
+                <p>Celebrate the power of humanity to protect and preserve our planet.</p>
+                <a href="themes/our-power.html">Explore Our Power, Our Planet</a>
+            </div>
+            <img src="https://via.placeholder.com/600x400" alt="Our Power, Our Planet">
+        </section>
+
+        <section id="theme-habits" class="theme-section">
+            <img src="https://via.placeholder.com/600x400" alt="Green Habits">
+            <div>
+                <h2>Green Habits</h2>
+                <p>Learn about sustainable habits that contribute to a greener future.</p>
+                <a href="themes/green-habits.html">Explore Green Habits</a>
+            </div>
+        </section>
+
+        <section id="theme-bloom" class="theme-section alternate-layout">
+            <div>
+                <h2>Collective Bloom</h2>
+                <p>Experience the collective beauty of nature and humanity in harmony.</p>
+                <a href="themes/collective-bloom.html">Explore Collective Bloom</a>
+            </div>
+            <img src="https://via.placeholder.com/600x400" alt="Collective Bloom">
+        </section>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <h2>About Our Club</h2>
+        <p>Our club is dedicated to promoting creativity and artistic expression. This art gallery is a collaborative effort by our talented members to showcase their vision and passion for art.</p>
+        <div class="members">
+            <div class="member">
+                <img src="https://via.placeholder.com/150" alt="Member 1">
+                <h3>Member 1</h3>
+                <p>Role: Curator</p>
+            </div>
+            <div class="member">
+                <img src="https://via.placeholder.com/150" alt="Member 2">
+                <h3>Member 2</h3>
+                <p>Role: Artist</p>
+            </div>
+            <div class="member">
+                <img src="https://via.placeholder.com/150" alt="Member 3">
+                <h3>Member 3</h3>
+                <p>Role: Designer</p>
+            </div>
         </div>
     </section>
 
