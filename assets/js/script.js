@@ -55,13 +55,17 @@ const initializeSwiper = () => {
 
 // Navigation Functions
 const initializeNavigation = () => {
-  document.querySelectorAll('.navbar a').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      e.preventDefault();
-      const target = document.querySelector(anchor.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
+  document.querySelectorAll('.navbar a').forEach(link => {
+    link.addEventListener('click', event => {
+        const href = link.getAttribute('href');
+        if (href.startsWith('#')) {
+            // Handle internal navigation
+            const target = document.querySelector(href);
+            if (target) {
+                event.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
     });
   });
 };

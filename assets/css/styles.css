@@ -171,9 +171,10 @@ body {
 }
 
 .member img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+    width: 150px; /* Fixed width */
+    height: 150px; /* Fixed height */
+    object-fit: cover; /* Crops the image to fit the container */
+    border-radius: 50%; /* Keeps the circular shape */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 

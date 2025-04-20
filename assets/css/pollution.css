@@ -172,7 +172,7 @@ body {
 
 .desktop_3 .mainImage .image-description {
   position: absolute;
-  bottom: 20%;
+  bottom: 5%;
   left: 10px;
   color: var(--text-color);
   font-size: 14px;
